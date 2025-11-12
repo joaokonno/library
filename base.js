@@ -1,4 +1,6 @@
 const myLibrary = []; // array for storing books
+const table = document.createElement('table'); // create table
+document.body.appendChild(table); // append table to the document
 
 function Book(title, author, pages){
     // Constructor for Book objects
@@ -16,8 +18,7 @@ function addBookToLibrary(title, author, pages){
 
 function displayBooks(){
     // This function displays all books in a table
-    const table = document.createElement('table'); // create table
-    document.body.appendChild(table); // append table to the document
+    table.innerHTML = ''; // reset the table contents in case we want to update it
     const book = {title: 'test', author: 'test', pages: 1}; // create an instance of Book for getting key
     const keys = Object.keys(book); // get the Book properties
     const header_row = document.createElement('tr'); // create the header row
@@ -55,4 +56,27 @@ const dialog = document.querySelector('dialog'); // get a handle for the dialogu
 
 add_book_btn.addEventListener('click', () =>{ // show dialogue when button is pressed
     dialog.showModal();
+})
+
+const form = document.querySelector('form');
+dialog.addEventListener('close', (event) => {
+    console.log(dialog.returnValue);
+    // when form is closed, get the data, create a new Book instance and update the table
+    if (dialog.returnValue === 'confirm'){
+        const formData = new FormData(form); 
+        const title = formData.get('title');
+        const author = formData.get('author');
+        const pages = formData.get('pages');
+        console.log(title);
+        addBookToLibrary(title, author, pages);
+        displayBooks();
+    }
+})
+
+// configure the confirm button to prevent the default form behaviour and close the dialog
+confirmButton = document.querySelector('#confirm-btn');
+confirmButton.addEventListener('click', (event) => {
+    if (!form.reportValidity()) return; // prevent submission if not all required fields have been filled
+    event.preventDefault();
+    dialog.close('confirm')
 })
