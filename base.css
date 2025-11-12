@@ -32,3 +32,20 @@ th, td{
 table{
     margin-bottom: 2rem;
 }
+
+dialog{
+    border-radius: 20px;
+}
+
+.dialog-h1{
+    text-align: center;
+}
+
+input[type='text'], input[type='number']{
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.input-container{
+    margin-bottom: 10px;
+}
