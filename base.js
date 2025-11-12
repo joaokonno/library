@@ -46,3 +46,13 @@ addBookToLibrary('black holes', 'stephen hawking', 310);
 addBookToLibrary('understanding analysis', 'abbott', 200);
 addBookToLibrary('introduction to electrodynamics', 'griffiths', 400);
 displayBooks();
+
+// Create button for showing dialogue
+const add_book_btn = document.createElement('button');
+add_book_btn.textContent = 'add book';
+document.body.append(add_book_btn);
+const dialog = document.querySelector('dialog'); // get a handle for the dialogue
+
+add_book_btn.addEventListener('click', () =>{ // show dialogue when button is pressed
+    dialog.showModal();
+})
