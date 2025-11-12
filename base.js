@@ -11,6 +11,11 @@ function Book(title, author, pages, read){
     this.read = read
 }
 
+// Add method for read status of the book
+Book.prototype.isRead = function(){
+    this.read = !this.read;
+}
+
 function addBookToLibrary(title, author, pages, read){
     // This function instantiates a new Book object and pushes it to myLibrary
     const book = new Book(title, author, pages, read);
@@ -40,12 +45,15 @@ function displayBooks(){
             tr.append(td);
             td.innerHTML = book[key]
         }
-        // Create button for deleting books
+        // Create delete and read buttons
         const td = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'delete';
+        const readButton = document.createElement('button');
+        readButton.textContent = 'change read status';
         tr.appendChild(td);
         td.appendChild(deleteButton);
+        td.appendChild(readButton);
 
         deleteButton.addEventListener('click', () => {
             // If button is clicked, remove corresponding row
@@ -53,6 +61,12 @@ function displayBooks(){
             // Also remove the book from the array so it doesnt show up when we add another book
             const bookIndex = myLibrary.indexOf(book);
             myLibrary.splice(bookIndex, 1);
+        })
+
+        readButton.addEventListener('click', () => {
+            // Toggle book's read to true or false and update the table
+            book.isRead();
+            displayBooks();
         })
         
     }
