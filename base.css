@@ -9,7 +9,6 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: -200px;
     margin-top: 75px;
 }
 
@@ -17,12 +16,20 @@ button{
     border-radius: 5px;
     padding: 0 10px;
     font-size: 1.25rem;
+    transition: all 0.3s ease;
 }
 
 .add-btn{
     padding: 5px 20px;
     border-radius: 10px;
     font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.add-btn:active, button:active{
+    background-color: black;
+    color: white;
+    transform:  scale(0.95);
 }
 
 th, td{
