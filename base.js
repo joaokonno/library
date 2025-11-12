@@ -98,8 +98,9 @@ dialog.addEventListener('close', (event) => {
         const title = formData.get('title');
         const author = formData.get('author');
         const pages = formData.get('pages');
+        const read = formData.has('read');
         console.log(title);
-        addBookToLibrary(title, author, pages);
+        addBookToLibrary(title, author, pages, read);
         displayBooks();
     }
 })
