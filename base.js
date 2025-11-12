@@ -2,24 +2,26 @@ const myLibrary = []; // array for storing books
 const table = document.createElement('table'); // create table
 document.body.appendChild(table); // append table to the document
 
-function Book(title, author, pages){
+function Book(title, author, pages, read){
     // Constructor for Book objects
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.id = crypto.randomUUID();
+    this.read = read
 }
 
-function addBookToLibrary(title, author, pages){
+function addBookToLibrary(title, author, pages, read){
     // This function instantiates a new Book object and pushes it to myLibrary
-    const book = new Book(title, author, pages);
+    const book = new Book(title, author, pages, read);
     myLibrary.push(book);
 }
 
 function displayBooks(){
     // This function displays all books in a table
     table.innerHTML = ''; // reset the table contents in case we want to update it
-    const book = {title: 'test', author: 'test', pages: 1}; // create an instance of Book for getting key
+    // create an instance of Book for getting key
+    const book = {title: 'test', author: 'test', pages: 1, read: true}; 
     const keys = Object.keys(book); // get the Book properties
     const header_row = document.createElement('tr'); // create the header row
     table.appendChild(header_row); // append header row to the table
@@ -58,9 +60,9 @@ function displayBooks(){
 }
 
 // some test data
-addBookToLibrary('black holes', 'stephen hawking', 310);
-addBookToLibrary('understanding analysis', 'abbott', 200);
-addBookToLibrary('introduction to electrodynamics', 'griffiths', 400);
+addBookToLibrary('black holes', 'stephen hawking', 310, true);
+addBookToLibrary('understanding analysis', 'abbott', 200, false);
+addBookToLibrary('introduction to electrodynamics', 'griffiths', 400, false);
 displayBooks();
 
 // Create button for showing dialogue
