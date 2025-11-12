@@ -82,6 +82,7 @@ displayBooks();
 // Create button for showing dialogue
 const add_book_btn = document.createElement('button');
 add_book_btn.textContent = 'add book';
+add_book_btn.classList.add('add-btn');
 document.body.append(add_book_btn);
 const dialog = document.querySelector('dialog'); // get a handle for the dialogue
 
@@ -112,3 +113,10 @@ confirmButton.addEventListener('click', (event) => {
     event.preventDefault();
     dialog.close('confirm')
 })
+
+// Create container for the table and add book button
+const container = document.createElement('div');
+container.id = 'container'
+container.appendChild(table);
+container.appendChild(add_book_btn);
+document.body.append(container);
