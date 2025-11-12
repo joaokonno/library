@@ -38,6 +38,21 @@ function displayBooks(){
             tr.append(td);
             td.innerHTML = book[key]
         }
+        // Create button for deleting books
+        const td = document.createElement('td');
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'delete';
+        tr.appendChild(td);
+        td.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', () => {
+            // If button is clicked, remove corresponding row
+            tr.remove();
+            // Also remove the book from the array so it doesnt show up when we add another book
+            const bookIndex = myLibrary.indexOf(book);
+            myLibrary.splice(bookIndex, 1);
+        })
+        
     }
    
 }
