@@ -1,6 +1,7 @@
-const myLibrary = [];
+const myLibrary = []; // array for storing books
 
 function Book(title, author, pages){
+    // Constructor for Book objects
     this.author = author;
     this.title = title;
     this.pages = pages;
@@ -8,11 +9,13 @@ function Book(title, author, pages){
 }
 
 function addBookToLibrary(title, author, pages){
+    // This function instantiates a new Book object and pushes it to myLibrary
     const book = new Book(title, author, pages);
     myLibrary.push(book);
 }
 
 function displayBooks(){
+    // This function displays all books in a table
     const table = document.createElement('table'); // create table
     document.body.appendChild(table); // append table to the document
     const book = {title: 'test', author: 'test', pages: 1}; // create an instance of Book for getting key
