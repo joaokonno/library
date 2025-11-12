@@ -25,9 +25,9 @@ function displayBooks(){
     table.appendChild(header_row); // append header row to the table
 
     for (const key of keys){ // loop through the keys to populate the header row
-        const td = document.createElement('td');
-        td.innerHTML = key
-        header_row.appendChild(td);
+        const th = document.createElement('th');
+        th.innerHTML = key
+        header_row.appendChild(th);
     }
 
     for (const book of myLibrary){ // create a row for every book
