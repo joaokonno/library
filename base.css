@@ -24,3 +24,11 @@ button{
     border-radius: 10px;
     font-size: 1.5rem;
 }
+
+th, td{
+    padding: 0.20rem 0.5rem;
+}
+
+table{
+    margin-bottom: 2rem;
+}
