@@ -95,14 +95,19 @@ dialog.addEventListener('close', (event) => {
     console.log(dialog.returnValue);
     // when form is closed, get the data, create a new Book instance and update the table
     if (dialog.returnValue === 'confirm'){
+        // get form data
         const formData = new FormData(form); 
         const title = formData.get('title');
         const author = formData.get('author');
         const pages = formData.get('pages');
         const read = formData.has('read');
         console.log(title);
+        // add book to array
         addBookToLibrary(title, author, pages, read);
+        // update table
         displayBooks();
+        // reset form inputs
+        form.reset();
     }
 })
 
