@@ -120,3 +120,5 @@ container.id = 'container'
 container.appendChild(table);
 container.appendChild(add_book_btn);
 document.body.append(container);
+
+dialog.showModal(); // temporary for testing

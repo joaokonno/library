@@ -35,6 +35,8 @@ table{
 
 dialog{
     border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .dialog-h1{
@@ -44,8 +46,33 @@ dialog{
 input[type='text'], input[type='number']{
     font-size: 1.5rem;
     border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
 }
 
 .input-container{
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+input[type='checkbox']{
+    width: 25px;
+    height: 25px;
+}
+
+#confirm-btn{
+    padding: 5px 30px;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+
 }
