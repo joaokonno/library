@@ -2,13 +2,18 @@ const myLibrary = []; // array for storing books
 const table = document.createElement('table'); // create table
 document.body.appendChild(table); // append table to the document
 
-function Book(title, author, pages, read){
-    // Constructor for Book objects
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.id = crypto.randomUUID();
-    this.read = read
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    }
+
+    isRead(){
+        this.read = !this.read;
+    }
 }
 
 // Add method for read status of the book
